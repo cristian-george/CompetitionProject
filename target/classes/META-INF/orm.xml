@@ -1,0 +1,89 @@
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" version="2.0">
+    <persistence-unit-metadata>
+        <persistence-unit-defaults>
+            <access>FIELD</access>
+        </persistence-unit-defaults>
+    </persistence-unit-metadata>
+    <entity class="database.model.AdminEntity">
+        <table name="admin" schema="public" catalog="competition"/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="idPerson">
+                <column name="id_person" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="database.model.CompetitorEntity">
+        <table name="competitor" schema="public" catalog="competition"/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="idPerson">
+                <column name="id_person" precision="-1"/>
+            </basic>
+            <basic name="idTeam">
+                <column name="id_team" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="database.model.ParticipationEntity">
+        <table name="participation" schema="public" catalog="competition"/>
+        <id-class class="database.model.ParticipationEntityPK"/>
+        <attributes>
+            <id name="idCompetitor">
+                <column name="id_competitor" precision="-1"/>
+            </id>
+            <id name="idStage">
+                <column name="id_stage" precision="-1"/>
+            </id>
+            <basic name="score">
+                <column name="score" nullable="false" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="database.model.PersonEntity">
+        <table name="person" schema="public" catalog="competition"/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="fullname">
+                <column name="fullname"/>
+            </basic>
+            <basic name="username">
+                <column name="username"/>
+            </basic>
+            <basic name="type">
+                <column name="type" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="database.model.StageEntity">
+        <table name="stage" schema="public" catalog="competition"/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+            <basic name="completed">
+                <column name="completed" nullable="false" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="database.model.TeamEntity">
+        <table name="team" schema="public" catalog="competition"/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
